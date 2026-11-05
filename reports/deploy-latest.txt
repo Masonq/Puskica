@@ -1,0 +1,105 @@
+
+=== Версия (01:57:06 UTC)
+commit: 6d0d781 Deploy: Docker, nginx, HTTPS, otchet; dorade dizajna
+host: impressed-jade.ptr.network, Ubuntu 24.04.4 LTS
+ram: 3915 MB, свободно 1000 MB, swap: 4095 MB
+disk: 40G свободно из 59G
+
+=== Swap (нужен для сборки Next.js на малой памяти) (01:57:06 UTC)
+ok
+
+=== Пакеты (01:57:06 UTC)
+Docker version 29.7.2, build a7dcaa6
+Docker Compose version v5.4.0
+nginx version: nginx/1.24.0 (Ubuntu)
+certbot 2.9.0
+
+=== Порт 80/443 (01:57:08 UTC)
+слушают: "nginx" 
+
+=== .env (01:57:08 UTC)
+создан
+домен: puskica.89-208-113-147.sslip.io, индексация: 0
+
+=== Сборка и запуск контейнеров (01:57:08 UTC)
+
+
+
+
+
+
+
+
+
+
+
+
+ Image puskica-api Built 
+ Image puskica-web Built 
+ Volume puskica_pgdata Creating 
+ Volume puskica_uploads Creating 
+ Volume puskica_uploads Creating 
+ Volume puskica_pgdata Creating 
+ Network puskica_default Creating 
+ Network puskica_default Creating 
+ Volume puskica_uploads Created 
+ Volume puskica_uploads Created 
+ Volume puskica_pgdata Created 
+ Volume puskica_pgdata Created 
+ Network puskica_default Created 
+ Network puskica_default Created 
+ Container puskica-db-1 Creating 
+ Container puskica-db-1 Created 
+ Container puskica-api-1 Creating 
+ Container puskica-api-1 Created 
+ Container puskica-web-1 Creating 
+ Container puskica-web-1 Created 
+ Container puskica-db-1 Starting 
+ Container puskica-db-1 Started 
+ Container puskica-db-1 Waiting 
+ Container puskica-db-1 Healthy 
+ Container puskica-api-1 Starting 
+ Container puskica-api-1 Started 
+ Container puskica-web-1 Starting 
+ Container puskica-web-1 Started 
+
+=== Ожидание сервисов (01:58:17 UTC)
+api: 200, web: 200 (через 2 попыток)
+
+=== nginx (01:58:21 UTC)
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+=== HTTPS сертификат (01:58:21 UTC)
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+=== Проверки снаружи (https://puskica.89-208-113-147.sslip.io) (01:58:29 UTC)
+000 0.048149s / 
+000 0.047163s /fakulteti 
+200 0.154420s /f/etf 
+200 0.102117s /f/etf/programiranje-1 
+200 0.146318s /f/matf 
+200 0.040653s /api/health 
+{"ok":true,"subjects":643}
+200 0.342060s /sitemap.xml (urls: 676)
+200 0.042987s /robots.txt 
+200 0.194665s /f/etf/programiranje-1/opengraph-image 
+404 0.200698s /nepostoji (ожидается 404)
+html cache-control: cache-control: no-cache, must-revalidate
+static cache-control: cache-control: public, max-age=31536000, immutable
+cache-control: public, max-age=31536000, immutable
+x-robots-tag: x-robots-tag: noindex, nofollow
+главная: контент на месте
+
+=== Контейнеры (01:58:31 UTC)
+SERVICE   STATE     STATUS
+api       running   Up 13 seconds
+db        running   Up 19 seconds (healthy)
+web       running   Up 13 seconds
+
+=== Итог (01:58:31 UTC)
+OK: https://puskica.89-208-113-147.sslip.io
