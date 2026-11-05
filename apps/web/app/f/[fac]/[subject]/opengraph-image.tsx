@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { nextRok, type SubjectFull } from "@puskica/shared";
+import { nextRok, plural, type SubjectFull } from "@puskica/shared";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -23,18 +23,18 @@ export default async function OG({ params }: { params: Promise<{ fac: string; su
       <div style={{ width: 1200, height: 630, background: "#0e1430", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 72, fontFamily: "Onest", color: "#eef1fa" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <div style={{ width: 54, height: 54, borderRadius: 14, background: "#ffe14d", transform: "rotate(-14deg)", display: "flex" }} />
-          <div style={{ fontFamily: "Unbounded", fontSize: 34 }}>Puškica</div>
-          <div style={{ marginLeft: "auto", fontSize: 30, color: "#9aa3c7" }}>{s?.faculty.short ?? ""}</div>
+          <div style={{ display: "flex", fontFamily: "Unbounded", fontSize: 34 }}>Puškica</div>
+          <div style={{ display: "flex", marginLeft: "auto", fontSize: 30, color: "#9aa3c7" }}>{s?.faculty.short ?? ""}</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-          <div style={{ fontFamily: "Unbounded", fontSize: name.length > 34 ? 58 : 72, lineHeight: 1.08, letterSpacing: -1 }}>{name}</div>
-          <div style={{ fontSize: 32, color: "#9aa3c7" }}>Rokovi, kolokvijumi i skripte{count ? `: ${count} materijala` : ""}</div>
+          <div style={{ display: "flex", fontFamily: "Unbounded", fontSize: name.length > 34 ? 58 : 72, lineHeight: 1.08, letterSpacing: -1 }}>{name}</div>
+          <div style={{ display: "flex", fontSize: 32, color: "#9aa3c7" }}>{`Rokovi, kolokvijumi i skripte${count ? `: ${count} ${plural(count, "materijal", "materijala", "materijala")}` : ""}`}</div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 28 }}>
           {rok && (
             <div style={{ display: "flex", alignItems: "center", gap: 14, background: "#18214a", borderRadius: 999, padding: "10px 24px 10px 10px" }}>
-              <div style={{ background: "#ffe14d", color: "#231d00", borderRadius: 999, padding: "8px 18px", fontFamily: "Unbounded", fontSize: 26 }}>{rok.days}</div>
-              <div>{`dana do roka: ${rok.name}`}</div>
+              <div style={{ display: "flex", background: "#ffe14d", color: "#231d00", borderRadius: 999, padding: "8px 18px", fontFamily: "Unbounded", fontSize: 26 }}>{rok.days}</div>
+              <div style={{ display: "flex" }}>{`dana do roka: ${rok.name}`}</div>
             </div>
           )}
         </div>

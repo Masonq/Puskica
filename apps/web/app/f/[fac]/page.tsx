@@ -34,7 +34,7 @@ export default async function FacultyPage({ params }: P) {
           <div className="facts">
             <span className="badge">{tr(f.university, pismo)}</span>
             {f.subjects > 0 && <span className="badge">{f.subjects} {tr(plural(f.subjects, "predmet", "predmeta", "predmeta"), pismo)}</span>}
-            {f.materials > 0 && <span className="badge badge-marker">{f.materials} {tr("materijala", pismo)}</span>}
+            {f.materials > 0 && <span className="badge badge-marker">{f.materials} {tr(plural(f.materials, "materijal", "materijala", "materijala"), pismo)}</span>}
           </div>
         </div>
         {f.url && (

@@ -55,12 +55,12 @@ def parse_etf():
     base = f"{ETF}/sr-lat/studiranje/osnovne-akademske-studije/er/2019"
     first = _etf_plan(f"{base}/prva-godina-studijskog-programa-er")
     modules = [
-        ("racunarska-tehnika-i-informatika", "ER — Računarska tehnika i informatika"),
-        ("elektronika-i-digitalni-sistemi", "ER — Elektronika i digitalni sistemi"),
-        ("energetika", "ER — Energetika"),
-        ("signali-i-sistemi", "ER — Signali i sistemi"),
-        ("telekomunikacije-i-informacione-tehnologije", "ER — Telekomunikacije i IT"),
-        ("fizicka-elektronika", "ER — Fizička elektronika"),
+        ("racunarska-tehnika-i-informatika", "ER: Računarska tehnika i informatika"),
+        ("elektronika-i-digitalni-sistemi", "ER: Elektronika i digitalni sistemi"),
+        ("energetika", "ER: Energetika"),
+        ("signali-i-sistemi", "ER: Signali i sistemi"),
+        ("telekomunikacije-i-informacione-tehnologije", "ER: Telekomunikacije i IT"),
+        ("fizicka-elektronika", "ER: Fizička elektronika"),
     ]
     for slug, name in modules:
         try:

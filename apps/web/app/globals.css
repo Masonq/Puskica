@@ -320,7 +320,7 @@ h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
   content: ""; position: absolute; right: -18px; top: -18px; width: 56px; height: 56px;
   background: var(--marker); opacity: 0.9; border-radius: 50%;
 }
-.fac.big { grid-column: span 2; min-height: 160px; background: var(--card-2); }
+.fac.big { grid-column: span 2; min-height: 140px; background: var(--card-2); }
 .fac.big .fac-short { font-size: 30px; }
 
 /* ---------- фильтры ---------- */
@@ -347,7 +347,7 @@ h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
 .subj-espb span { font-family: var(--font-body); font-size: 9.5px; font-weight: 700; margin-top: 3px; opacity: 0.8; }
 .subj-name { font-weight: 600; line-height: 1.3; }
 .subj-sub { font-size: 13px; color: var(--faint); margin-top: 2px; }
-.subj-count { flex: none; }
+.subj-count { flex: none; background: var(--marker); color: var(--marker-ink); }
 .subj-arrow { flex: none; color: var(--faint); width: 18px; height: 18px; }
 .subj-list { display: grid; gap: 8px; }
 @media (min-width: 720px) { .subj-list { grid-template-columns: 1fr 1fr; } }
@@ -357,12 +357,15 @@ h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
 .crumbs a:hover { color: var(--text); }
 .crumbs svg { width: 14px; height: 14px; }
 .page-head { display: flex; flex-direction: column; gap: 14px; }
+.page-head > .btn { align-self: flex-start; }
+@media (min-width: 720px) { .page-head > .btn { align-self: auto; } }
 @media (min-width: 720px) { .page-head { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
 .facts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 
 /* ---------- предмет: раскладка ---------- */
 .subject-layout { display: grid; gap: 16px; margin-top: 22px; }
 @media (min-width: 1040px) { .subject-layout { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
+.subject-layout > * { min-width: 0; }
 .aside { display: grid; gap: 12px; }
 @media (min-width: 1040px) { .aside { position: sticky; top: 24px; } }
 
@@ -411,7 +414,11 @@ h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
   font-size: 16px;
 }
 .textarea { min-height: 96px; resize: vertical; }
-.select { appearance: none; background-image: none; }
+.select {
+  appearance: none; -webkit-appearance: none; padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%239aa3c7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 8 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+}
 .input:focus, .select:focus, .textarea:focus { border-color: var(--pen); }
 .form { display: grid; gap: 16px; }
 .err { color: var(--red); font-size: 14px; font-weight: 600; margin: 0; }

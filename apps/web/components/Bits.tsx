@@ -29,7 +29,7 @@ export function FacultyCard({ f, pismo, big = false }: { f: FacultyBrief; pismo:
         ) : (
           <span className="badge">{tr("Uskoro", pismo)}</span>
         )}
-        {f.materials > 0 && <span className="badge badge-marker">{f.materials} {tr("materijala", pismo)}</span>}
+        {f.materials > 0 && <span className="badge badge-marker">{f.materials} {tr(plural(f.materials, "materijal", "materijala", "materijala"), pismo)}</span>}
       </div>
     </Link>
   );

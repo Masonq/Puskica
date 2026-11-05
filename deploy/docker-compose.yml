@@ -1,0 +1,51 @@
+name: puskica
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: puskica
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: puskica
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U puskica"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: ../apps/api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://puskica:${DB_PASSWORD}@db:5432/puskica
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
+      UPLOAD_DIR: /data/uploads
+      COOKIE_SECURE: "1"
+    volumes:
+      - uploads:/data/uploads
+    ports:
+      - "127.0.0.1:8710:8710"
+
+  web:
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      API_INTERNAL: http://api:8710
+      SITE_URL: https://${DOMAIN}
+      INDEXABLE: ${INDEXABLE}
+    ports:
+      - "127.0.0.1:3710:3710"
+
+volumes:
+  pgdata:
+  uploads:

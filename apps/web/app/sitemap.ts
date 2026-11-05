@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { api, SITE } from "@/lib/server";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const d = await api<{ faculties: string[]; subjects: { faculty: string; slug: string }[] }>("/api/sitemap", { revalidate: 3600 });

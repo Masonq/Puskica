@@ -643,7 +643,7 @@
    },
    {
     "slug": "er-racunarska-tehnika-i-informatika",
-    "name": "ER — Računarska tehnika i informatika",
+    "name": "ER: Računarska tehnika i informatika",
     "level": "osnovne",
     "subjects": [
      {
@@ -1258,7 +1258,7 @@
    },
    {
     "slug": "er-elektronika-i-digitalni-sistemi",
-    "name": "ER — Elektronika i digitalni sistemi",
+    "name": "ER: Elektronika i digitalni sistemi",
     "level": "osnovne",
     "subjects": [
      {
@@ -2137,7 +2137,7 @@
    },
    {
     "slug": "er-energetika",
-    "name": "ER — Energetika",
+    "name": "ER: Energetika",
     "level": "osnovne",
     "subjects": [
      {
@@ -3088,7 +3088,7 @@
    },
    {
     "slug": "er-signali-i-sistemi",
-    "name": "ER — Signali i sistemi",
+    "name": "ER: Signali i sistemi",
     "level": "osnovne",
     "subjects": [
      {
@@ -3959,7 +3959,7 @@
    },
    {
     "slug": "er-telekomunikacije-i-informacione-tehnologije",
-    "name": "ER — Telekomunikacije i IT",
+    "name": "ER: Telekomunikacije i IT",
     "level": "osnovne",
     "subjects": [
      {
@@ -5502,7 +5502,7 @@
    },
    {
     "slug": "er-fizicka-elektronika",
-    "name": "ER — Fizička elektronika",
+    "name": "ER: Fizička elektronika",
     "level": "osnovne",
     "subjects": [
      {
